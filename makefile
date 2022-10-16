@@ -1,18 +1,15 @@
-EXE = h1-counter
+EXE = peer
 CFLAGS = -Wall
 CXXFLAGS = -Wall
-LDLIBS =
+LDLIBS = 
 CC = gcc
 CXX = g++
 
 .PHONY: all
 all: $(EXE)
 
-# Implicit rules defined by Make, but you can redefine if needed
-
-h1-counter: h1-counter.c
-	$(CC) $(CFLAGS) h1-counter.c $(LDLIBS) -o h1-counter
-
+peer: main.cpp
+	$(CXX) $(CFLAGS) main.cpp p2p.cpp p2p.h lookup-and-connect.cpp lookup-and-connect.h  -o peer
 
 .PHONY: clean
 clean:
